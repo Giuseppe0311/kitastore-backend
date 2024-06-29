@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: products
+      auto-index-creation: true
+server:
+  port: 8090
