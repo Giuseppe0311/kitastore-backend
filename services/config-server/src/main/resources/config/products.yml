@@ -7,3 +7,6 @@ spring:
       auto-index-creation: true
 server:
   port: 8090
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
