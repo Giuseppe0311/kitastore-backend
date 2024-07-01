@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "products")
+@Document(collection = "products")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +19,8 @@ public class Products {
     private String name;
     private String description;
     private Double price;
-    private String status;
+    private Integer stock;
+    @Builder.Default()
+    private boolean status= true;
     Category category;
 }

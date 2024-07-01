@@ -1,6 +1,8 @@
 package com.ecommerce.products.request;
 
 import com.ecommerce.products.models.Category;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +12,18 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductRequest{
-    String _id;
+public class ProductRequest {
+    @NotBlank
+    @NotNull
+    @Size(min = 3, max = 100)
     String name;
     String description;
+    @NotNull
+    @DecimalMin(value = "0.0", inclusive = false)
     Double price;
-    String status;
+    @Min(value = 0)
+    Integer stock;
+    @NotNull
+    @Valid
     Category category;
 }
