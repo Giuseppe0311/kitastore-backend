@@ -9,7 +9,9 @@ import com.ecommerce.products.repository.CategoryRepository;
 import com.ecommerce.products.repository.ProductRepository;
 import com.ecommerce.products.request.ProductRequest;
 import com.ecommerce.products.service.ProductService;
+import com.fasterxml.jackson.databind.util.BeanUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,10 +36,26 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public void update(String id, ProductRequest productRequest) {
+        Products products = productRepository.findById(id).orElseThrow(
+                () -> new ProductNotFoundException("Product not found")
+        );
+        productMapper.update(productRequest,products );
+        productRepository.save(products);
+    }
+    @Override
     public void create(ProductRequest productRequest) {
         Products products = productMapper.toEntity(productRequest);
         productRepository.save(products);
     }
 
+    @Override
+    public void delete(String id) {
+        Products products = productRepository.findById(id).orElseThrow(
+                () -> new ProductNotFoundException("Product not found")
+        );
+        products.setStatus(false);
+        productRepository.save(products);
+    }
 
 }

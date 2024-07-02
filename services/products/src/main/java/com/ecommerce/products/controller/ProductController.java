@@ -1,6 +1,7 @@
 package com.ecommerce.products.controller;
 
 import com.ecommerce.products.dto.ProductDTO;
+import com.ecommerce.products.dto.ProductMessageDTO;
 import com.ecommerce.products.request.ProductRequest;
 import com.ecommerce.products.service.ProductService;
 import jakarta.validation.Valid;
@@ -24,9 +25,21 @@ public class ProductController {
     public ResponseEntity<ProductDTO> getProductsById(@PathVariable String id){
         return ResponseEntity.ok(productService.findById(id));
     }
+
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody @Valid ProductRequest productRequest){
+    public ResponseEntity<ProductMessageDTO> create(@RequestBody @Valid ProductRequest productRequest){
         productService.create(productRequest);
-        return ResponseEntity.ok("Product created");
+        return ResponseEntity.ok(new ProductMessageDTO("Product created successfully"));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductMessageDTO> update(@PathVariable String id, @RequestBody @Valid ProductRequest productRequest){
+        productService.update(id, productRequest);
+        return ResponseEntity.ok(new ProductMessageDTO("Product updated successfully"));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ProductMessageDTO> delete(@PathVariable String id){
+        productService.delete(id);
+        return ResponseEntity.ok(new ProductMessageDTO("Product deleted successfully"));
     }
 }
