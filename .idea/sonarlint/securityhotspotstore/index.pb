@@ -13,11 +13,15 @@ Pservices/discovery/src/main/java/com/example/discovery/DiscoveryApplication.jav
 Oservices/products/src/main/java/com/ecommerce/products/ProductsApplication.java,9\1\9193b4e3754e683f3a5950795edf34080e783c8c
 v
 Fservices/order/src/main/java/com/ecommerce/order/OrderApplication.java,f\9\f98f8b3df8ffdba401725051eabfc8ed07a7a45a
-r
-Bservices/order/src/main/java/com/ecommerce/order/models/Order.java,5\2\52e1bdeec52102f8d2d7f1256797d8086ab5e661
 {
 Kservices/products/src/main/java/com/ecommerce/products/models/Products.java,0\5\05fac340aa4884aed4eab155a5667e3939ccfc48
 z
 Jservices/order/src/main/java/com/ecommerce/order/models/PaymentMethod.java,b\7\b798886a13fb4b52f7de51664721f5f5810794f9
 x
 Hservices/order/src/main/java/com/ecommerce/order/models/OrderDetail.java,1\2\1237f136200018a72597af0f45a3cc2088e8e047
+s
+Cservices/order/src/main/java/com/ecommerce/order/models/Orders.java,b\2\b24426033c385db317e28a03a336b8c485cf9967
+F
+services/order/pom.xml,c\8\c8b20644f4771c599b2df35d865086b365098b06
+{
+Kservices/products/src/main/java/com/ecommerce/products/models/Category.java,7\4\740325ed2c22b38139381ac82bd401291f79ff14

@@ -17,8 +17,7 @@ public class OrderDetail {
     private Integer id;
     private Integer productId;
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    private Orders orders;
     private Double subTotal;
     private Integer quantity;
 
