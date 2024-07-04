@@ -1,5 +1,6 @@
 package com.ecommerce.products.handler;
 
+import com.ecommerce.products.exception.ProductInsufficientStock;
 import com.ecommerce.products.exception.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,12 @@ public class GlobalExceptionHandler {
 
         ErrorResponse errorResponse = new ErrorResponse(errors, HttpStatus.BAD_REQUEST);
         return ResponseEntity.badRequest().body(errorResponse);
+    }
+    @ExceptionHandler(ProductInsufficientStock.class)
+    public ResponseEntity<ErrorResponse> handleProductInsufficientStock(ProductInsufficientStock e) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("product", e.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse(errors, HttpStatus.BAD_REQUEST);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 }
