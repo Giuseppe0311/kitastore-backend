@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,7 +22,7 @@ public class ProductRequest {
     String description;
     @NotNull
     @DecimalMin(value = "0.0", inclusive = false)
-    Double price;
+    BigDecimal price;
     @Min(value = 0)
     Integer stock;
     @NotNull

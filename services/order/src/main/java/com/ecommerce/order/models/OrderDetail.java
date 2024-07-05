@@ -10,12 +10,14 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
+@Builder
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer productId;
+    private String productId;
     @ManyToOne
     private Orders orders;
     private Double subTotal;

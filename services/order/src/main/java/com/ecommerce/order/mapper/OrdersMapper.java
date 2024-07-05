@@ -6,7 +6,7 @@ import com.ecommerce.order.request.OrderRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring",uses = {OrderDetailMapper.class})
+@Mapper(componentModel = "spring")
 public interface OrdersMapper {
     OrdersDto toDto(Orders orders);
     Orders toEntity(OrderRequest orderRequest);

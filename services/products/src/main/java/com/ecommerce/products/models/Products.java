@@ -8,6 +8,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
+
 @Document(collection = "products")
 @Builder
 @AllArgsConstructor
@@ -18,7 +20,7 @@ public class Products {
     private String _id;
     private String name;
     private String description;
-    private Double price;
+    private BigDecimal price;
     private Integer stock;
     @Builder.Default()
     private boolean status= true;

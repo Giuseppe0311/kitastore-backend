@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.util.BeanUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +41,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public List<ProductPurchaseDTO> purchaseProduct(List<ProductPurchaseRequest> requests) {
         //verificar si el producto existe
-        var idsProducts  = requests.stream().map(ProductPurchaseRequest::getProductId).toList();
-        var existProducts = productRepository.findAllBy_id(idsProducts);
+        var idsProducts  = requests
+                .stream()
+                .map(ProductPurchaseRequest::getProductId).toList();
+        var existProducts = productRepository.findProductsBy_idInAndStatusTrue(idsProducts);
         if (idsProducts.size() != existProducts.size()){
             throw new ProductNotFoundException("one or more products not found");
         }

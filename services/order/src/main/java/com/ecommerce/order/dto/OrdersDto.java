@@ -12,7 +12,6 @@ public record OrdersDto(
         String reference,
         BigDecimal totalAmount,
         PaymentMethod paymentMethod,
-        List<OrderDetailDto> orderDetails,
         String customerId,
         LocalDateTime createdAt,
         LocalDateTime updatedAt

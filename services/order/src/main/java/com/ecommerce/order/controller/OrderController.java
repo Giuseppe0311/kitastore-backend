@@ -4,6 +4,7 @@ import com.ecommerce.order.dto.OrderMessage;
 import com.ecommerce.order.dto.OrdersDto;
 import com.ecommerce.order.request.OrderRequest;
 import com.ecommerce.order.services.OrderService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class OrderController {
 //    }
 
     @PostMapping
-    public ResponseEntity<OrderMessage> createOrder(@RequestBody OrderRequest request){
+    public ResponseEntity<OrderMessage> createOrder(@RequestBody @Valid OrderRequest request){
         OrderMessage message = new OrderMessage("Order created", orderService.createOrder(request), LocalDateTime.now());
         return ResponseEntity.ok().body(message);
     }
