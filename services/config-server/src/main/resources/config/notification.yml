@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      database: notification
+      port: 27017
+      auto-index-creation: true
+      host: localhost
+  kafka:
+    bootstrap-servers: localhost:9092
+server:
+  port: 8097

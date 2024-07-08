@@ -1,5 +1,4 @@
-package com.ecommerce.order.models;
-
+package com.ecommerce.notification.kafka;
 
 public enum PaymentMethod {
     CREDIT_CARD,
