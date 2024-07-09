@@ -7,5 +7,8 @@ spring:
       host: localhost
   kafka:
     bootstrap-servers: localhost:9092
+email:
+  username: ${EMAIL_USERNAME}
+  password: ${EMAIL_PASSWORD}
 server:
   port: 8097
